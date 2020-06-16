@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import * as Facebook from 'expo-facebook';
+import FB_KEY from '../config';
 
 import {
     FACEBOOK_LOGIN_SUCCESS,
@@ -21,7 +22,7 @@ export const facebookLogin = () => {
 };
 
 const doFacebookLogin = async (dispatch) => {
-    await Facebook.initializeAsync('2712923375597133');
+    await Facebook.initializeAsync(FB_KEY);
     const {
         type,
         token,
