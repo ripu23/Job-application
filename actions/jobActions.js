@@ -4,7 +4,8 @@ import qs from 'qs';
 
 import {
     FETCH_JOBS,
-    LIKE_JOB
+    LIKE_JOB,
+    CLEAR_LIKED_JOBS
 } from './types';
 import { JOB_TEST_DATA } from './test';
 
@@ -42,5 +43,11 @@ export const likeJob = (job) => {
     return {
         payload: job,
         type: LIKE_JOB
+    };
+}
+
+export const clearLikedJobs = () => {
+    return {
+        type: CLEAR_LIKED_JOBS
     };
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import MapScreen from '../screens/MapScreen';
 import DeckScreen from '../screens/DeckScreen';
@@ -13,10 +14,38 @@ const MainTab = createBottomTabNavigator();
 
 export const MainBottonTab = () => (
 
-    <MainTab.Navigator>
-        <MainTab.Screen name="Map" component={MapScreen} />
-        <MainTab.Screen name="Deck" component={DeckScreen} />
-        <MainTab.Screen name="Review" component={ReviewTab} />
+    <MainTab.Navigator
+        tabBarOptions={{
+            activeTintColor: '#03A9F4',
+            labelStyle: { fontSize: 12 }
+        }}
+    >
+        <MainTab.Screen
+            name="Map"
+            component={MapScreen}
+            options={{
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialIcons name="my-location" color={color} size={size} />
+                ),
+            }} />
+        <MainTab.Screen
+            name="Deck"
+            component={DeckScreen}
+            options={{
+                tabBarLabel: 'Jobs',
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialIcons name="description" color={color} size={size} />
+                ),
+            }} />
+        <MainTab.Screen
+            name="Review"
+            component={ReviewTab}
+            options={{
+                tabBarLabel: 'Review Jobs',
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialIcons name="favorite" color={color} size={size} />
+                ),
+            }} />
     </MainTab.Navigator>
 
 );

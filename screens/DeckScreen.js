@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
 import { Card, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Swipe from '../components/Swipe';
 import * as actions from '../actions';
@@ -41,12 +42,23 @@ const DeckScreen = (props) => {
 
     const renderNoMoreCards = () => {
         return (
-            <Card title='No more jobs!!!' containerStyle={{ height: 150 }} >
+            <Card title='No More Jobs!!!' containerStyle={{ height: 170 }} >
                 <View>
                     <Text>Change your search area to find more jobs. Jobs are shown within 10
-                    miles of chosen area.
-                </Text>
+                    miles of chosen area.</Text>
                 </View>
+                <Button
+                    title='Back to Map'
+                    icon={
+                        <Icon
+                            name="my-location"
+                            size={20}
+                            color="white"
+                        />
+                    }
+                    buttonStyle={{ backgroundColor: '#03A9F4' }}
+                    onPress={() => props.navigation.navigate('Map')}
+                />
             </Card >
         );
     }
